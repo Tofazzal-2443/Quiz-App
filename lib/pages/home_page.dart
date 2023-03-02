@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:listview/customwidget/quiz_item.dart';
-import 'package:listview/result_page.dart';
-import 'package:listview/temp_db.dart';
+import 'package:quiz_app/custom_widget/quiz_item.dart';
+import 'package:quiz_app/db/temp_db.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
