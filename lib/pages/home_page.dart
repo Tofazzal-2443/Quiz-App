@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:quiz_app/custom_widget/quiz_item.dart';
 import 'package:quiz_app/db/temp_db.dart';
+import 'package:quiz_app/pages/result_page.dart';
 
 
 class HomePage extends StatefulWidget {

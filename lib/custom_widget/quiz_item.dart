@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/db/temp_db.dart';
+import 'package:quiz_app/pages/custom_style.dart';
 
 
 
