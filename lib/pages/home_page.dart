@@ -6,7 +6,6 @@ import 'package:quiz_app/custom_widget/quiz_item.dart';
 import 'package:quiz_app/db/temp_db.dart';
 import 'package:quiz_app/pages/result_page.dart';
 
-
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -51,28 +50,31 @@ class _HomePageState extends State<HomePage> {
         appBar: AppBar(
           title: Text('Time Remains: $count sec'),
           actions: [
-            if(hasQuizStarted) TextButton(
-              style: TextButton.styleFrom(
-                foregroundColor: Colors.white,
+            if (hasQuizStarted)
+              TextButton(
+                style: TextButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.green,
+                ),
+                onPressed: () {
+                  stopTimer();
+                  navigateToResult();
+                },
+                child: const Text('Finish'),
               ),
-              onPressed: () {
-                stopTimer();
-                navigateToResult();
-              },
-              child: const Text('Finish'),
-            ),
-            if(!hasQuizStarted) TextButton(
-              style: TextButton.styleFrom(
-                foregroundColor: Colors.white,
-              ),
-              onPressed: () {
-                setState(() {
-                  hasQuizStarted = true;
-                });
-                startTimer();
-              },
-              child: const Text('Start'),
-            )
+            if (!hasQuizStarted)
+              TextButton(
+                style: TextButton.styleFrom(
+                  foregroundColor: Colors.white,
+                ),
+                onPressed: () {
+                  setState(() {
+                    hasQuizStarted = true;
+                  });
+                  startTimer();
+                },
+                child: const Text('Start'),
+              )
           ],
         ),
         body: Stack(
@@ -91,19 +93,24 @@ class _HomePageState extends State<HomePage> {
                 );
               },
             ),
-            if(!hasQuizStarted) Container(
-              color: Colors.white,
-              alignment: Alignment.center,
-              child: Text('Click Start button to start the Quiz'),
-
-            ),
+            if (!hasQuizStarted)
+              Container(
+                color: Colors.white,
+                alignment: Alignment.center,
+                child: Text(
+                  'Click Start button to start the Quiz',
+                  style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
           ],
         ));
   }
 
   void navigateToResult() {
     Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const ResultPage()));
+        context, MaterialPageRoute(builder: (context) => const ResultPage()));
   }
 }
